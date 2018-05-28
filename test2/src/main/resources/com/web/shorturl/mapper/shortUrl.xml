@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.web.shorturl.mapper.shortUrl">
+
+	<select id="getUrl" resultType="ShortUrlVo">
+		select URL from shorturl.tb_short_url_data where context=#{context}
+	</select>
+	
+	<select id="getContext" resultType="ShortUrlVo">
+		select CONTEXT from shorturl.tb_short_url_data where url=#{url}
+	</select>	
+
+	<insert id="insertUrl" >
+		insert into shorturl.tb_short_url_data( CONTEXT,URL ) values( #{context}, #{url} )
+	  <selectKey keyProperty="seqNo" resultType="int">
+	    SELECT  LAST_INSERT_ID()
+	  </selectKey>
+	</insert>
+	
+	<update id="updateContext" parameterType="ShortUrlVo">
+		update shorturl.tb_short_url_data set CONTEXT=#{context} where SEQ_NO=#{seqNo}
+	</update>
+
+</mapper>
