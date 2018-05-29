@@ -37,7 +37,31 @@ URL을 입력받아 짧게 줄여주고, Shortening된 URL을 입력하면 원�
 
 ## 프로젝트 빌드 및 실행 방법
 
-<pre><code> This is a code block </code></pre>
+### 필요 환경
+- JAVA 1.8
+- Eclipse Java EE IDE for Web Developers Mars 이상
+- Apache Tomcat 8 이상
+- MySQL 5 이상
+ 
+* mysql 셋팅
+* mysql 설치 시 모든 옵션 기본 / 비밀번호 1234로 셋팅
+* MySQL Command Line Client 를 실행하여 아래의 명령어 실행
+<pre><code> 
+mysql> create database shorturl;
+Query OK, 1row affected (0.00 sec)
+
+mysql> use shorturl;
+Database changed
+
+mysql> CREATE TABLE tb_short_url_data (
+  SEQ_NO int(8) NOT NULL AUTO_INCREMENT,
+  CONTEXT varchar(10) DEFAULT NULL,
+  URL varchar(300) DEFAULT NULL,
+  PRIMARY KEY (SEQ_NO),
+  UNIQUE KEY SEQ_NO (SEQ_NO)
+);
+Query OK, 1row affected (0.02 sec)
+</code></pre>
 
 
 
