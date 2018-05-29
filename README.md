@@ -43,9 +43,9 @@ URL을 입력받아 짧게 줄여주고, Shortening된 URL을 입력하면 원�
 - Apache Tomcat 8 이상
 - MySQL 5 이상
  
-* mysql 셋팅
+#### mysql 셋팅
 * mysql 설치 시 모든 옵션 기본 / 비밀번호 1234로 셋팅
-* MySQL Command Line Client 를 실행하여 아래의 명령어 실행
+* MySQL Command Line Client 를 실행하여 아래의 명령어로 데이터베이스와 테이블을 생성
 <pre><code> 
 mysql> create database shorturl;
 Query OK, 1row affected (0.00 sec)
@@ -63,7 +63,14 @@ mysql> CREATE TABLE tb_short_url_data (
 Query OK, 1row affected (0.02 sec)
 </code></pre>
 
+#### 이클립스 셋팅
 
+<pre><code> 
+Git Repositoires 에 https://github.com/kwonpc/shortUrl.git 등록 후 Import Projects 로 내려받기
+내려받은 test2 프로젝트를 Maven 빌드 (goals:install) 
+이클립스에 로컬 Tomcat 서버연동하여 프로젝트 실행 ( path: / 지정 )
+브라우저에서 localhost:8080 으로 확인
+</code></pre>
 
 
 
